@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import CardList from './components/CardList';
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -10,7 +11,20 @@ function App() {
   }, []);
   
   return (
-    <h1>Creating!</h1>
+    <div className='tc '>
+      <header>
+        <h1 className='f1'>My contacts</h1>
+      </header>
+      {contacts.length === 0
+        ? <h2 className='f2'>Loading...</h2>
+        : <CardList contacts={contacts}/> }
+      <footer>
+        <hr/>
+        <p>Desarrollo de Software para Dispositivos Moviles.
+          {new Date().getFullYear()}
+        </p>
+      </footer>
+    </div>
   );
 }
 
