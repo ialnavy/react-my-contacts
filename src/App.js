@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react';
 import CardList from './components/CardList';
 import Scroll from './components/Scroll';
+import {ErrorBoundary} from 'react-error-boundary';
+import ErrorFallback from './components/ErrorFallback';
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -18,9 +20,11 @@ function App() {
       </header>
       {contacts.length === 0
         ? <h2 className='f2'>Loading...</h2>
-        : (<Scroll>
+        : (<ErrorBoundary FallbackComponent={ErrorFallback}>
+          <Scroll>
             <CardList contacts={contacts}/>
-          </Scroll>) }
+          </Scroll>
+        </ErrorBoundary>) }
       <footer>
         <hr/>
         <p>Desarrollo de Software para Dispositivos Moviles.
