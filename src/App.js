@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import CardList from './components/CardList';
+import Scroll from './components/Scroll';
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -17,7 +18,9 @@ function App() {
       </header>
       {contacts.length === 0
         ? <h2 className='f2'>Loading...</h2>
-        : <CardList contacts={contacts}/> }
+        : (<Scroll>
+            <CardList contacts={contacts}/>
+          </Scroll>) }
       <footer>
         <hr/>
         <p>Desarrollo de Software para Dispositivos Moviles.
