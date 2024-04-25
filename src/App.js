@@ -3,6 +3,7 @@ import CardList from './components/CardList';
 import Scroll from './components/Scroll';
 import {ErrorBoundary} from 'react-error-boundary';
 import ErrorFallback from './components/ErrorFallback';
+import Searcher from './components/Searcher';
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -12,6 +13,17 @@ function App() {
     .then(response => response.json())
     .then(contacts => setContacts(contacts.results));
   }, []);
+
+  const [searchField, setSearchField] = useState('');
+  
+  const onSearchChange = (event) => {
+    setSearchField(event.target.value);
+  };
+  
+  const searchedContacts = contacts.filter(contact => {
+    return (contact.name['first'] + ' ' + contact.name['last'])
+      .toLowerCase().includes(searchField.toLowerCase());
+  });
   
   return (
     <div className='tc '>
@@ -21,8 +33,9 @@ function App() {
       {contacts.length === 0
         ? <h2 className='f2'>Loading...</h2>
         : (<ErrorBoundary FallbackComponent={ErrorFallback}>
+          <Searcher searchChange={onSearchChange}/>
           <Scroll>
-            <CardList contacts={contacts}/>
+            <CardList contacts={searchedContacts}/>
           </Scroll>
         </ErrorBoundary>) }
       <footer>
