@@ -1,20 +1,20 @@
+import Card from './Card';
+
 const CardList = ({ contacts }) => {
-    return (
-        <div>
-            {
-                contacts.map((contact, i) => {
-                    return (
-                    <div>
-                        <h1>{contact.name['first'] + ' ' + contact.name['last']}</h1>
-                        <p>{contact.picture['medium']}</p>
-                        <p>{contact.email}</p>
-                        <p>{contact.cell}</p>
-                    </div>);
-                    }
-                )
-            }
-        </div>
+    return (<div> {
+        contacts.map((contact, i) => {
+            return (
+                <Card
+                    key={i}
+                    photo={contact.picture['medium']}
+                    name={contact.name['first'] + ' ' + contact.name['last']}
+                    email={contact.email}
+                    phone={contact.cell}
+                />
+            );
+        }
+    ) } </div>
     );
-}
+};
 
 export default CardList;
