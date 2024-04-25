@@ -1,6 +1,7 @@
 import {useState} from "react";
 import Modal from "react-modal";
 import {AiTwotoneMail, AiFillPhone, AiFillMobile} from 'react-icons/ai';
+import {MapContainer, TileLayer} from 'react-leaflet';
 
 const CardModal = ({contact}) => {
     const [modalOpen, setModalOpen] = useState(false);
@@ -28,12 +29,16 @@ const CardModal = ({contact}) => {
                 <p><AiFillPhone/> Phone: {contact.phone}</p>
                 <p><AiFillMobile/> Cell: {contact.cell}</p>
             </div>
-            <div className="dib"></div>
             <div className="tc">
                 <a
                     className="f6 link dim br3 ph3 pv2 mb2 dib white bg-dark-blue"
                     onClick={() => setModalOpen(false)}
                     href="#0">Close</a>
+            </div>
+            <div className="dib">
+                <MapContainer center={[contact.location.coordinates.latitude, contact.location.coordinates.longitude]} zoom={12}>
+                    <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                </MapContainer>
             </div>
         </Modal>
     </div> );
