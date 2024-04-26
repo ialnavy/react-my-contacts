@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-my-contacts/static/css/main.7e4e4d2f.css",
+    "main.js": "/react-my-contacts/static/js/main.f9120e4f.js",
+    "static/js/453.ff4034bb.chunk.js": "/react-my-contacts/static/js/453.ff4034bb.chunk.js",
+    "static/media/Sagobi-d9GnV.ttf": "/react-my-contacts/static/media/Sagobi-d9GnV.85e4080e71a269b82bdd.ttf",
+    "index.html": "/react-my-contacts/index.html",
+    "main.7e4e4d2f.css.map": "/react-my-contacts/static/css/main.7e4e4d2f.css.map",
+    "main.f9120e4f.js.map": "/react-my-contacts/static/js/main.f9120e4f.js.map",
+    "453.ff4034bb.chunk.js.map": "/react-my-contacts/static/js/453.ff4034bb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7e4e4d2f.css",
+    "static/js/main.f9120e4f.js"
+  ]
+}
